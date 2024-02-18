@@ -11,6 +11,9 @@ const resolvers = {
                 };
         });
     },
+    getAllProducts: () => {
+        return Widgets.find({});
+    },
     createProduct: ({ input }) => {
         const newWidget = new Widgets({
             name: input.name,
@@ -46,7 +49,7 @@ const resolvers = {
     },
     deleteProduct: ({ id }) => {
         return new Promise((resolve) => {
-            Widgets.remove(
+            Widgets.deleteOne(
                 {
                     _id: id,
                 },
